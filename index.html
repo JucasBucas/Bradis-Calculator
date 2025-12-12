@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bradis Trigonometric Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bradis Trigonometric Table</h1>
+            <p class="subtitle">Interactive trigonometric calculator with table visualization</p>
+        </header>
+        
+        <div class="controls">
+            <div class="function-selector">
+                <button class="func-btn active" data-func="sin">sin(x)</button>
+                <button class="func-btn" data-func="cos">cos(x)</button>
+                <button class="func-btn" data-func="tan">tan(x)</button>
+                <button class="func-btn" data-func="ctg">ctg(x)</button>
+            </div>
+            
+            <div class="angle-input">
+                <span>Angle (degrees):</span>
+                <input type="number" id="angleInput" min="0" max="360" step="0.1" value="30">
+                <button id="calculateBtn">Calculate</button>
+            </div>
+        </div>
+        
+        <div class="result-display">
+            <div id="resultText">sin(30°) =</div>
+            <div class="result-value" id="resultValue">0.5</div>
+        </div>
+        
+        <div class="table-container">
+            <table id="trigTable">
+                <thead>
+                    <tr>
+                        <th>Angle (°)</th>
+                        <th>sin</th>
+                        <th>cos</th>
+                        <th>tan</th>
+                        <th>ctg</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to use this trigonometric table:</h3>
+            <ul>
+                <li>Select a trigonometric function (sin, cos, tan, or ctg) using the buttons</li>
+                <li>Enter an angle in degrees (0-360) in the input field</li>
+                <li>Click "Calculate" to see the value for your selected angle</li>
+                <li>The table below shows values for common angles from 0° to 90°</li>
+                <li>The row corresponding to your selected angle will be highlighted</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Based on the Bradis trigonometric table | Values are rounded to 4 decimal places</p>
+        </footer>
+    </div>
+</body>
+</html>
