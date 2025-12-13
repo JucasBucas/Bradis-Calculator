@@ -3,11 +3,8 @@ const calculateBtn = document.getElementById('calculateBtn');
 const angleInput = document.getElementById('angleInput');
 const resultText = document.getElementById('resultText');
 const resultValue = document.getElementById('resultValue');
-const tableBody = document.getElementById('tableBody');
 
 let currentFunc = 'sin';
-
-const commonAngles = [0, 15, 30, 45, 60, 75, 90];
 
 function toRadians(degrees) {
     return degrees * Math.PI / 180;
@@ -62,49 +59,6 @@ function updateResult() {
     
     resultText.textContent = `${funcName}(${angle}°) =`;
     resultValue.textContent = formatValue(value);
-    
-    updateTableHighlight(angle);
-}
-
-function updateTableHighlight(angle) {
-    const rows = tableBody.querySelectorAll('tr');
-    rows.forEach(row => {
-        row.classList.remove('highlight');
-        const rowAngle = parseInt(row.cells[0].textContent);
-        if (rowAngle === Math.round(angle)) {
-            row.classList.add('highlight');
-        }
-    });
-}
-
-function generateTable() {
-    tableBody.innerHTML = '';
-    
-    commonAngles.forEach(angle => {
-        const row = document.createElement('tr');
-        
-        const angleCell = document.createElement('td');
-        angleCell.textContent = angle;
-        row.appendChild(angleCell);
-        
-        const sinCell = document.createElement('td');
-        sinCell.textContent = formatValue(calculateSin(angle));
-        row.appendChild(sinCell);
-        
-        const cosCell = document.createElement('td');
-        cosCell.textContent = formatValue(calculateCos(angle));
-        row.appendChild(cosCell);
-        
-        const tanCell = document.createElement('td');
-        tanCell.textContent = formatValue(calculateTan(angle));
-        row.appendChild(tanCell);
-        
-        const ctgCell = document.createElement('td');
-        ctgCell.textContent = formatValue(calculateCtg(angle));
-        row.appendChild(ctgCell);
-        
-        tableBody.appendChild(row);
-    });
 }
 
 funcButtons.forEach(button => {
@@ -133,5 +87,4 @@ angleInput.addEventListener('change', () => {
     updateResult();
 });
 
-generateTable();
 updateResult();
